@@ -1,0 +1,13 @@
+env
+/env
+TOKEN
+/TOKEN
+build
+/build
+/build/*
+dist
+/dist
+/dist/*
+airtrik.egg-info
+/airtrik.egg-info
+/airtrik.egg-info/*
