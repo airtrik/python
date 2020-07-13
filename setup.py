@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="airtrik",
-    version="0.1.0",
+    version="0.1.1",
     author="Vishal Pandey",
     author_email="hello@airtrik.com",
     description="Connect IoT Devices to cloud and manage from anywhere.",
@@ -22,5 +22,5 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.5',
 )

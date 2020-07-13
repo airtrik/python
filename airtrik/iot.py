@@ -4,7 +4,7 @@ import ssl
 import os
 import requests
 
-apiEndPoint = "https://iot.softwaremakeinindia.com/iot/"
+apiEndPoint = "https://airtrik.com/iot/"
 client = mqtt.Client()
 AIRTRIK_key = ""
 
@@ -33,7 +33,7 @@ def connect(key):
 	client.tls_set()
 	client.tls_insecure_set(True)
 	client.username_pw_set(username, password)
-	client.connect("iot.softwaremakeinindia.com", 8883, 60)
+	client.connect("airtrik.com", 8883, 60)
 
 
 def onConnect():
