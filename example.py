@@ -1,28 +1,25 @@
 import airtrik.iot as iot
 
-device1 = "bulb"
-device2 = "fan"
+device = "bulb"
 
 def onConnect():
 	print("Connected To Network")
+	# print(iot.logs())
 
 def onReceive(deviceId, message):
-	if deviceId == device1:
-		print(device1, message)
-	if deviceId == device2:
-		print(device2, message)
+	print(device, message)
 
 
 iot.onConnect = onConnect
 iot.onReceive = onReceive
 
 iot.connect("__APP_KEY__")
-iot.subscribe(device1)
-iot.subscribe(device2)
+iot.subscribe(device)
 
-# iot.waitForMessage()
+# print(iot.logs())
+iot.waitForMessage()
 
 
-while True:
-	msg = input("Enter The Message to send\n")
-	iot.send(device1, msg)
+# while True:
+# 	msg = input("Enter The Message to send\n")
+# 	iot.send(device, msg)

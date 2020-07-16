@@ -4,7 +4,22 @@ import ssl
 import os
 import requests
 
+
+
+welcome_message = """
+
+ █████╗ ██╗██████╗ ████████╗██████╗ ██╗██╗  ██╗    ██╗ ██████╗ ████████╗     ██████╗██╗      ██████╗ ██╗   ██╗██████╗ 
+██╔══██╗██║██╔══██╗╚══██╔══╝██╔══██╗██║██║ ██╔╝    ██║██╔═══██╗╚══██╔══╝    ██╔════╝██║     ██╔═══██╗██║   ██║██╔══██╗
+███████║██║██████╔╝   ██║   ██████╔╝██║█████╔╝     ██║██║   ██║   ██║       ██║     ██║     ██║   ██║██║   ██║██║  ██║
+██╔══██║██║██╔══██╗   ██║   ██╔══██╗██║██╔═██╗     ██║██║   ██║   ██║       ██║     ██║     ██║   ██║██║   ██║██║  ██║
+██║  ██║██║██║  ██║   ██║   ██║  ██║██║██║  ██╗    ██║╚██████╔╝   ██║       ╚██████╗███████╗╚██████╔╝╚██████╔╝██████╔╝
+╚═╝  ╚═╝╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝    ╚═╝ ╚═════╝    ╚═╝        ╚═════╝╚══════╝ ╚═════╝  ╚═════╝ ╚═════╝ 
+
+"""
+
+
 apiEndPoint = "https://airtrik.com/iot/"
+logsEndPoint = "https://airtrik.com/api/logs/"
 client = mqtt.Client()
 AIRTRIK_key = ""
 
@@ -13,6 +28,9 @@ IS_CONNECTED = False
 def connect(key):
 	global AIRTRIK_key
 	global client
+	global IS_CONNECTED
+	if IS_CONNECTED:
+		return
 
 	AIRTRIK_key = key
 
@@ -34,6 +52,7 @@ def connect(key):
 	client.tls_insecure_set(True)
 	client.username_pw_set(username, password)
 	client.connect("airtrik.com", 8883, 60)
+	IS_CONNECTED = True
 
 
 def onConnect():
@@ -66,5 +85,22 @@ def subscribe(deviceId):
 	client.loop_start()
 
 
+def logs(key=0):
+	if key == 0:
+		key = AIRTRIK_key
+	payload = {'key': key}
+	res = requests.post(logsEndPoint, data=payload)
+	return res.text
 
 
+def waitForMessage():
+	try:
+		print(welcome_message)
+		# print("Waiting for message.")
+		while True:
+			pass
+	except KeyboardInterrupt:
+		print()
+		print("Disconnecting...")
+		print("Good Luck !!")
+		return
