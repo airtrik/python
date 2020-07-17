@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="airtrik",
-    version="0.1.2",
+    version="0.1.3",
     author="Vishal Pandey",
     author_email="hello@airtrik.com",
     description="Connect IoT Devices to cloud and manage from anywhere.",

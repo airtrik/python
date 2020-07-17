@@ -22,6 +22,7 @@ apiEndPoint = "https://airtrik.com/iot/"
 logsEndPoint = "https://airtrik.com/api/logs/"
 client = mqtt.Client()
 AIRTRIK_key = ""
+AIRTRIK_APP_name = ""
 
 IS_CONNECTED = False
 
@@ -29,6 +30,7 @@ def connect(key):
 	global AIRTRIK_key
 	global client
 	global IS_CONNECTED
+	global AIRTRIK_APP_name
 	if IS_CONNECTED:
 		return
 
@@ -39,6 +41,8 @@ def connect(key):
 		res = requests.post(apiEndPoint, data=payload).json()
 		username = res['username']
 		password = res['password']
+		AIRTRIK_APP_name = res['name']
+
 	except Exception as e:
 		raise Exception("Ubable to connect please check app key")
 		return
@@ -90,7 +94,10 @@ def logs(key=0):
 		key = AIRTRIK_key
 	payload = {'key': key}
 	res = requests.post(logsEndPoint, data=payload)
-	return res.text
+	f = open(AIRTRIK_APP_name+".csv", "w")
+	f.write(res.text)
+	f.close()
+	return AIRTRIK_APP_name+".csv"
 
 
 def waitForMessage():
