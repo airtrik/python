@@ -1,8 +1,8 @@
 # Airtrik python
 
-Airtrik is an IoT Cloud platform for managing the communication between IoT devices and software platforms.
-This is python sdk that can be used for communicating to both IoT device running python as programming language like Raspberry Pi 
-and software platform running python. This library can also be used for making realtime data pipeline for applying machine learningon the IoT devices.
+Airtrik is an IoT Cloud platform for managing communication between IoT devices and software platforms.
+This is python sdk that can be used for communicating to both IoT device running python as a programming language like Raspberry Pi 
+and software platform running python. This library can also be used for making realtime data pipeline for applying machine learning on the IoT devices.
 
 ## Summary
 
@@ -23,14 +23,14 @@ Follow the below instructions to get your device and application up and running 
 
 ### Prerequisites
 
-Before proceeding further you have following software installed in your system or developement system.
+Before proceeding further you have the following software installed in your system or development system.
 
     python (Version > 3.5)
     pip (any recent version)
 
 ### Installing
 
-Installing airtrik python library is straight foreward, just install it with pip. Although it will work pretty well with your system python.
+Installing airtrik python library is straight forward, just install it with pip. Although it will work pretty well with your system python.
 We recommend using the virtual environment for your project
 
 ```
@@ -98,4 +98,6 @@ who participated in this project.
 This project is licensed under the [MIT](LICENSE)
 Creative Commons License - see the [LICENSE](LICENSE) file for
 details
+
+
 
