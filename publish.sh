@@ -4,7 +4,6 @@ rm -r dist/*
 python setup.py sdist bdist_wheel
 twine upload dist/*
 ver=$(<version.txt)
-git checkout master
 git add .
 git commit -m "v"$ver
 git push -u origin master
