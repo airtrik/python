@@ -11,3 +11,4 @@ dist
 airtrik.egg-info
 /airtrik.egg-info
 /airtrik.egg-info/*
+version.txt

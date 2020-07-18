@@ -3,9 +3,12 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+with open("version.txt", "r") as fh:
+    ver = fh.read()
+
 setuptools.setup(
     name="airtrik",
-    version="0.1.4",
+    version=ver,
     author="Vishal Pandey",
     author_email="hello@airtrik.com",
     description="Connect IoT Devices to cloud and manage from anywhere.",

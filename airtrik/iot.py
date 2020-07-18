@@ -32,7 +32,7 @@ def connect(key):
 	global IS_CONNECTED
 	global AIRTRIK_APP_name
 	if IS_CONNECTED:
-		client.disconnect()
+		client = mqtt.Client()
 
 	AIRTRIK_key = key
 
