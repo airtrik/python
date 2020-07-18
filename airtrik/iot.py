@@ -32,7 +32,7 @@ def connect(key):
 	global IS_CONNECTED
 	global AIRTRIK_APP_name
 	if IS_CONNECTED:
-		return
+		client.disconnect()
 
 	AIRTRIK_key = key
 
