@@ -3,6 +3,7 @@ import paho.mqtt.client as mqtt
 import ssl
 import os
 import requests
+import json
 
 
 
@@ -20,6 +21,7 @@ welcome_message = """
 
 apiEndPoint = "https://airtrik.com/iot/"
 logsEndPoint = "https://airtrik.com/api/logs/"
+lastMsgEndPoint = "https://airtrik.com/api/lastmsg/"
 client = mqtt.Client()
 AIRTRIK_key = ""
 AIRTRIK_APP_name = ""
@@ -99,6 +101,13 @@ def logs(key=0):
 	f.close()
 	return AIRTRIK_APP_name+".csv"
 
+def lastmsg(key=0):
+	if key == 0:
+		key = AIRTRIK_key
+	payload = {'key': key}
+	res = requests.post(lastMsgEndPoint, data=payload)
+	res = json.loads(res.text)
+	return res
 
 def waitForMessage():
 	try:

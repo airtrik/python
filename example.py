@@ -16,7 +16,7 @@ iot.onReceive = onReceive
 iot.connect("__APP_KEY__")
 iot.subscribe(device)
 
-# print(iot.logs())
+print(iot.lastmsg())
 iot.waitForMessage()
 
 
